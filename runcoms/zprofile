@@ -43,7 +43,13 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  /usr/bin:
+  /usr/bin/site_perl
+  /usr/bin/vendor_perl
+  /usr/bin/core_perl:
   /usr/local/{bin,sbin}
+  /home/bameda/.local/bin
+  $(ruby -e "print Gem.user_dir")/bin:
   $path
 )
 
@@ -74,3 +80,17 @@ fi
 if [[ ! -d "${TMPDIR}" ]]; then
   mkdir -m 700 "${TMPDIR}"
 fi
+
+#
+# Ruby
+#
+
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+#
+# Qt5
+#
+
+# Fix missed icons in Qt5 apps like dolphin in non KDE/Gnome desktops (install qt5ct)
+#[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOMEa" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="qt5ct"
