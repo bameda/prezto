@@ -105,4 +105,3 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 # Fix missed icons in Qt5 apps like dolphin in non KDE/Gnome desktops (install qt5ct)
 #[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOMEa" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-

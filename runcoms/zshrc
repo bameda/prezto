@@ -19,4 +19,4 @@ alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| gre
 alias vi="nvim"
 alias vim="nvim"
 alias py.test='py.test -s --tb=native'
-
+alias use_anaconda="export PATH=\"~/anaconda3/bin:$PATH\""
