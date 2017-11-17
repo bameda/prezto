@@ -23,6 +23,11 @@ function prompt_bameda_precmd {
   if (( $+functions[python-info] )); then
     python-info
   fi
+
+  # Check for current node version
+  if (( $+functions[node-info] )); then
+    node-info
+  fi
 }
 
 function prompt_bameda_setup {
@@ -43,6 +48,7 @@ function prompt_bameda_setup {
       "%F{141}" # Purpple
       "%F{218}" # Hotpink
       "%F{154}" # Limegreen
+      "%F{208}" # Orange
     )
   else
     _prompt_bameda_colors=(
@@ -50,6 +56,7 @@ function prompt_bameda_setup {
       "%F{magenta}"
       "%F{red}"
       "%F{green}"
+      "%F{orange}"
     )
   fi
   if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
@@ -80,11 +87,15 @@ function prompt_bameda_setup {
   zstyle ':prezto:module:git:info:untracked' format "${_prompt_bameda_git_colors[5]}✭%f"
   zstyle ':prezto:module:git:info:keys' format 'prompt' '(%b%d%a%m%u)'
 
+
+  # Set node-info
+  zstyle ':prezto:module:node:info:version' format "[${_prompt_bameda_colors[5]}%v%f] "
+
   # Set python-info (virtualenv name).
   zstyle ':prezto:module:python:info:virtualenv' format "[${_prompt_bameda_colors[3]}%v%f] "
 
   # Define prompts.
-  PROMPT='${python_info[virtualenv]}'"${_prompt_bameda_colors[2]}%n%f@${_prompt_bameda_colors[1]}%m%f ${_prompt_bameda_colors[4]}%~%f $ "
+  PROMPT='$node_info[version]${python_info[virtualenv]}'"${_prompt_bameda_colors[2]}%n%f@${_prompt_bameda_colors[1]}%m%f ${_prompt_bameda_colors[4]}%~%f $ "
   RPROMPT='${git_info:+${(e)git_info[prompt]}}'
 }
 
