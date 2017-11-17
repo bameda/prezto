@@ -40,12 +40,12 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'ssh' \
   'git' \
-  'python' \
-  'node' \
   'fasd' \
   'history-substring-search' \
   'syntax-highlighting' \
-  'prompt'
+  'prompt' \
+  'python' \
+  'node'
 
 #
 # Autosuggestions
