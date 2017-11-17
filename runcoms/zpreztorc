@@ -187,6 +187,13 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 # zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
 
 #
+# Node
+#
+
+# Auto switch the node version according to .nvmrc files  on directory change.
+zstyle ':prezto:module:node:nvm' auto-switch 'yes'
+
+#
 # Screen
 #
 
