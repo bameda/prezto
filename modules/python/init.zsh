@@ -19,7 +19,7 @@ elif (( $+commands[pyenv] )); then
   eval "$(pyenv init -)"
 
 # Prepend PEP 370 per user site packages directory, which defaults to
-# ~/Library/Python on Mac OS X and ~/.local elsewhere, to PATH. The
+# ~/Library/Python on macOS and ~/.local elsewhere, to PATH. The
 # path can be overridden using PYTHONUSERBASE.
 else
   if [[ -n "$PYTHONUSERBASE" ]]; then
@@ -82,6 +82,7 @@ function _python-workon-cwd {
 # Load auto workon cwd hook
 if zstyle -t ':prezto:module:python:virtualenv' auto-switch 'yes'; then
   # Auto workon when changing directory
+  autoload -Uz add-zsh-hook
   add-zsh-hook chpwd _python-workon-cwd
 fi
 
@@ -114,6 +115,19 @@ if (( $+VIRTUALENVWRAPPER_VIRTUALENV || $+commands[virtualenv] )) && \
   else
     # Fallback to 'virtualenvwrapper' without 'pyenv' wrapper if available
     # in '$path' or in an alternative location on a Debian based system.
+    #
+    # If homebrew is installed and the python location wasn't overridden via
+    # environment variable we fall back to python3 then python2 in that order.
+    # This is needed to fix an issue with virtualenvwrapper as homebrew no
+    # longer shadows the system python.
+    if [[ -z "$VIRTUALENVWRAPPER_PYTHON" ]] && (( $+commands[brew] )); then
+      if (( $+commands[python3] )); then
+        export VIRTUALENVWRAPPER_PYTHON=$commands[python3]
+      elif (( $+commands[python2] )); then
+        export VIRTUALENVWRAPPER_PYTHON=$commands[python2]
+      fi
+    fi
+
     virtenv_sources=(
       ${(@Ov)commands[(I)virtualenvwrapper(_lazy|).sh]}
       /usr/share/virtualenvwrapper/virtualenvwrapper(_lazy|).sh(OnN)
