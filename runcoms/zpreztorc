@@ -138,13 +138,6 @@ zstyle ':prezto:module:prompt' theme 'bameda'
 # zstyle ':prezto:module:prompt' show-return-val 'yes'
 
 #
-# Ruby
-#
-
-# Auto switch the Ruby version on directory change.
-# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
-
-#
 # Python
 #
 
@@ -153,7 +146,7 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 
 
 # Automatically initialize virtualenvwrapper if pre-requisites are met.
-# zstyle ':prezto:module:python:virtualenv' initialize 'yes'
+zstyle ':prezto:module:python:virtualenv' initialize 'yes'
 
 #
 # Node
@@ -161,6 +154,13 @@ zstyle ':prezto:module:python:virtualenv' auto-switch 'yes'
 
 # Auto switch the node version according to .nvmrc files  on directory change.
 zstyle ':prezto:module:node:nvm' auto-switch 'yes'
+
+# Ruby
+#
+
+# Auto switch the Ruby version on directory change.
+# zstyle ':prezto:module:ruby:chruby' auto-switch 'yes'
+
 
 #
 # Screen
