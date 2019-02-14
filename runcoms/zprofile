@@ -53,11 +53,13 @@ path=(
   $HOME/{,s}bin(N)
   /home/bameda/.local/bin
   /opt/{homebrew,local}/{,s}bin(N)
-  /usr/local/{,s}bin(N)
   /usr/bin:
   /usr/bin/site_perl
   /usr/bin/vendor_perl
-  /usr/bin/core_perl:
+  /usr/bin/core_perl
+  /usr/local/{,s}bin(N)
+  /home/bameda/.local/bin
+  /home/bameda/.cargo/bin
   $(ruby -e "print Gem.user_dir")/bin:
   $path
 )
