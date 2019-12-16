@@ -26,6 +26,7 @@ unset fasd_cache
 #
 # Alias
 #
+alias diff='diff --color=auto'
 alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias vi="nvim"
 alias vim="nvim"
@@ -33,3 +34,7 @@ alias py.test='py.test -s --tb=native'
 #alias use_anaconda="export PATH=\"~/anaconda3/bin:$PATH\""
 alias docker-remove-all-containers="docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm"
 #alias qbittorrent="QT_AUTO_SCREEN_SCALE_FACTOR=0 qbittorrent"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/bameda/.sdkman"
+[[ -s "/home/bameda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/bameda/.sdkman/bin/sdkman-init.sh"

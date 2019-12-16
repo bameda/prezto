@@ -49,6 +49,8 @@ path=(
   /usr/bin/core_perl
   /usr/local/{bin,sbin}
   /home/bameda/.local/bin
+  /home/bameda/Android/Sdk/tools/bin
+  /home/bameda/.local/share/flutter/bin/
   /home/bameda/.cargo/bin
   $(ruby -e "print Gem.user_dir")/bin:
   $path
@@ -94,3 +96,7 @@ export GEM_HOME=$(ruby -e 'print Gem.user_dir')
 
 # Fix missed icons in Qt5 apps like dolphin in non KDE/Gnome desktops (install qt5ct)
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+
+
+export ANDROID_HOME="/home/bameda/Android/Sdk"
+export ANDROID_SDK_ROOT="/home/bameda/Android/Sdk"
