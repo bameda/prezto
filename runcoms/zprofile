@@ -59,8 +59,9 @@ path=(
   /usr/bin/core_perl
   /usr/local/{,s}bin(N)
   /home/bameda/.local/bin
+  /home/bameda/Android/Sdk
   /home/bameda/Android/Sdk/tools/bin
-  /home/bameda/.local/share/flutter/bin/
+  /home/bameda/.local/share/flutter/bin
   /home/bameda/.cargo/bin
   $(ruby -e "print Gem.user_dir")/bin:
   $path
@@ -114,5 +115,13 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 # Android
 #
 
+#
+# Java X apps
+#
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+#
+# Android SDK
+#
 export ANDROID_HOME="/home/bameda/Android/Sdk"
 export ANDROID_SDK_ROOT="/home/bameda/Android/Sdk"
