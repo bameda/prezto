@@ -13,6 +13,11 @@ fi
 # Customize to your needs...
 
 #
+# WINE
+#
+WINEPREFIX="$HOME/.wine32"
+
+#
 # Fasd
 #
 # eval "$(fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install)"
@@ -31,9 +36,30 @@ alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| gre
 alias vi="nvim"
 alias vim="nvim"
 alias py.test='py.test -s --tb=native'
+alias py.test.nowarn="py.test -s --tb=native -p no:warnings"
 alias docker-remove-all-containers="docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm"
+alias paca="pikaur"
+alias paco="paru"
+
 #alias qbittorrent="QT_AUTO_SCREEN_SCALE_FACTOR=0 qbittorrent"
 
+#
+# Direnv
+#
+eval "$(direnv hook zsh)"
+# venv python prompt
+setopt PROMPT_SUBST
+
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
+
+#
+# sdkman
+#
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/bameda/.sdkman"
 [[ -s "/home/bameda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/bameda/.sdkman/bin/sdkman-init.sh"
