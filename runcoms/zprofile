@@ -61,6 +61,7 @@ path=(
   /home/bameda/.local/bin
   /home/bameda/Android/Sdk
   /home/bameda/Android/Sdk/tools/bin
+  /home/bameda/Android/Sdk/platform-tools/
   /home/bameda/.local/share/flutter/bin
   /home/bameda/.cargo/bin
   $(ruby -e "print Gem.user_dir")/bin:
