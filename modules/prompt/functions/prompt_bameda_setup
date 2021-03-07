@@ -95,7 +95,8 @@ function prompt_bameda_setup {
   zstyle ':prezto:module:python:info:virtualenv' format "[${_prompt_bameda_colors[3]}%v%f] "
 
   # Define prompts.
-  PROMPT='$node_info[version]${python_info[virtualenv]}'"${_prompt_bameda_colors[2]}%n%f@${_prompt_bameda_colors[1]}%m%f ${_prompt_bameda_colors[4]}%3~%f $ "
+  #PROMPT='$node_info[version]${python_info[virtualenv]}'"${_prompt_bameda_colors[2]}%n%f@${_prompt_bameda_colors[1]}%m%f ${_prompt_bameda_colors[4]}%3~%f $ "
+  PROMPT='$node_info[version]'"${_prompt_bameda_colors[2]}%n%f@${_prompt_bameda_colors[1]}%m%f ${_prompt_bameda_colors[4]}%3~%f $ "
   RPROMPT='${git_info:+${(e)git_info[prompt]}}'
 }
 
