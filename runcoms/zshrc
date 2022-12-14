@@ -29,19 +29,12 @@ source "$fasd_cache"
 unset fasd_cache
 
 #
-# Alias
+# Pyenv
 #
-alias diff='diff --color=auto'
-alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
-alias vi="nvim"
-alias vim="nvim"
-alias pytest='py.test -s --tb=native'
-alias pytest.nowarn="py.test -s --tb=native -p no:warnings"
-alias docker-remove-all-containers="docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm"
-alias paca="pikaur"
-alias paco="paru"
-
-#alias qbittorrent="QT_AUTO_SCREEN_SCALE_FACTOR=0 qbittorrent"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 #
 # Direnv
@@ -64,9 +57,41 @@ PS1='$(show_virtual_env)'$PS1
 export SDKMAN_DIR="/home/bameda/.sdkman"
 [[ -s "/home/bameda/.sdkman/bin/sdkman-init.sh" ]] && source "/home/bameda/.sdkman/bin/sdkman-init.sh"
 
+
+#
+# grc
+#
+#for cmd in g++ gas head make ld ping6 tail traceroute6 $( ls /usr/share/grc/ ); do
+#  cmd="${cmd##*conf.}"
+#  type "${cmd}" >/dev/null 2>&1 && alias "${cmd}"="$( which grc ) --colour=auto ${cmd}"
+#done
+
+#
+# Alias
+#
+alias diff='diff --color=auto'
+alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias vi="nvim"
+alias vim="nvim"
+alias pytest='python -m pytest -s --tb=native'
+alias pytest.nomgrs="python -m pytest -s --tb=native --nomigrations"
+alias pytest.nowarn="python -m pytest -s --tb=native -p no:warnings"
+alias docker-remove-all-containers="docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm"
+alias paca="pikaur"
+alias paco="paru"
+alias taiga-vpm-start="sudo systemctl start wg-quick@taigadev0.service"
+alias taiga-vpm-status="sudo systemctl status wg-quick@taigadev0.service"
+alias taiga-vpm-stop="sudo systemctl stop wg-quick@taigadev0.service"
+alias kssh="kitty +kitten ssh" # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
+
 # This is the end
 neofetch
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 fpath+=~/.zfunc
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/zsh $fpath)
+compinit
+# <<<<  Vagrant command completion (end)

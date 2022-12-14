@@ -124,5 +124,15 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 #
 # Android SDK
 #
-export ANDROID_HOME="/home/bameda/Android/Sdk"
-export ANDROID_SDK_ROOT="/home/bameda/Android/Sdk"
+export ANDROID_HOME="/home/bameda/Android/Sdk/"
+export ANDROID_SDK_ROOT="/home/bameda/Android/Sdk/"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk/"
+export FLUTTER_HOME="/home/bameda/.local/share/flutter/"
+
+
+#
+# Pyenv
+#
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
