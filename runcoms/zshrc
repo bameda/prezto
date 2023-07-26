@@ -42,7 +42,9 @@ eval "$(pyenv virtualenv-init -)"
 # Rust
 #
 export PATH="$HOME/.cargo/bin:$PATH"
-source "$HOME/.cargo/env"
+if [[ -s "$HOME/.cargo/env" ]]; then
+    source "$HOME/.cargo/env"
+fi
 
 
 #
