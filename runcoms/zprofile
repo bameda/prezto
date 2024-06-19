@@ -17,7 +17,6 @@ fi
 # Editors
 #
 
-<<<<<<< HEAD
 if [[ -z "$EDITOR" ]]; then
   export EDITOR='nvim'
 fi
