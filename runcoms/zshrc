@@ -94,7 +94,7 @@ alias taiga-vpm-start="sudo systemctl start wg-quick@taigadev0.service"
 alias taiga-vpm-status="sudo systemctl status wg-quick@taigadev0.service"
 alias taiga-vpm-stop="sudo systemctl stop wg-quick@taigadev0.service"
 alias kssh="kitty +kitten ssh" # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
-
+alias kubectl="kubecolor"
 # This is the end
 neofetch
 
