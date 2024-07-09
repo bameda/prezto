@@ -81,6 +81,7 @@ export SDKMAN_DIR="/home/bameda/.sdkman"
 # Alias
 #
 alias diff='diff --color=auto'
+alias tree='tree --dirsfirst'
 alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias vi="nvim"
 alias vim="nvim"
@@ -94,7 +95,8 @@ alias taiga-vpm-start="sudo systemctl start wg-quick@taigadev0.service"
 alias taiga-vpm-status="sudo systemctl status wg-quick@taigadev0.service"
 alias taiga-vpm-stop="sudo systemctl stop wg-quick@taigadev0.service"
 alias kssh="kitty +kitten ssh" # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
-alias kubectl="kubecolor"
+
+
 # This is the end
 neofetch
 
@@ -106,3 +108,11 @@ fpath+=~/.zfunc
 fpath=(/opt/vagrant/embedded/gems/2.2.16/gems/vagrant-2.2.16/contrib/zsh $fpath)
 compinit
 # <<<<  Vagrant command completion (end)
+
+# kubectl completion (start)
+# get zsh complete kubectl
+source <(kubectl completion zsh)
+alias kubectl=kubecolor
+# make completion work with kubecolor
+compdef kubecolor=kubectl
+# kubectl completion (end)
