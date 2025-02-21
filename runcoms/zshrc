@@ -82,19 +82,22 @@ export SDKMAN_DIR="/home/bameda/.sdkman"
 #
 alias diff='diff --color=auto'
 alias tree='tree --dirsfirst'
-alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
+alias exa='exa --group-directories-first'
 alias vi="nvim"
 alias vim="nvim"
+alias paca="pikaur"
+alias paco="paru"
+alias kssh="kitty +kitten ssh" # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
 alias pytest='python -m pytest -s --tb=native'
 alias pytest.nomgrs="python -m pytest -s --tb=native --nomigrations"
 alias pytest.nowarn="python -m pytest -s --tb=native -p no:warnings"
+
+alias battery-statu='upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state|to\ full|percentage"'
 alias docker-remove-all-containers="docker ps -aq | xargs docker stop && docker ps -aq | xargs docker rm"
-alias paca="pikaur"
-alias paco="paru"
-alias taiga-vpm-start="sudo systemctl start wg-quick@taigadev0.service"
-alias taiga-vpm-status="sudo systemctl status wg-quick@taigadev0.service"
-alias taiga-vpm-stop="sudo systemctl stop wg-quick@taigadev0.service"
-alias kssh="kitty +kitten ssh" # https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
+
+alias kaleidos-vpm-start="sudo systemctl start wg-quick@kaleidos0.service"
+alias kaleidos-vpm-status="sudo systemctl status wg-quick@kaleidos0.service"
+alias kaleidos-vpm-stop="sudo systemctl stop wg-quick@kaleidos0.service"
 
 
 # This is the end
